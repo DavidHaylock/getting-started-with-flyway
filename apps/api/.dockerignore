@@ -1,0 +1,12 @@
+_tests
+src
+**/*/node_modules
+**/*.d.ts
+**/*.tsbuildinfo
+tsconfig.json
+jest.config.ts
+tsoa.json
+tsconfig.build.json
+*Dockerfile
+*Dockerfile.dev
+*dist/

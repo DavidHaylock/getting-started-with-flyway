@@ -1,0 +1,8 @@
+version: '3'
+services:
+  flyway:
+    build:
+      context: ./data
+      dockerfile: Dockerfile
+    env_file:
+      - .env
