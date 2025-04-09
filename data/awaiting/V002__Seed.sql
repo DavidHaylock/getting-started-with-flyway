@@ -19,6 +19,7 @@ BEGIN;
     led_zeppelin_iv_album_id UUID := uuid_generate_v4();
     physical_graffiti_album_id UUID := uuid_generate_v4();
     dark_side_album_id UUID := uuid_generate_v4();
+    money_ep_id UUID := uuid_generate_v4();
     wish_you_were_here_album_id UUID := uuid_generate_v4();
     night_at_opera_album_id UUID := uuid_generate_v4();
     news_of_world_album_id UUID := uuid_generate_v4();
@@ -47,6 +48,9 @@ BEGIN;
       (david_bowie_artist_id, 'David Bowie', 'UK'),
       (fleetwood_mac_artist_id, 'Fleetwood Mac', 'UK'),
       (u2_artist_id, 'U2', 'UK');
+
+    INSERT INTO fauxify.eps (id, title, artist_id, release_date)
+    VALUES (money_ep_id, 'Money', pink_floyd_artist_id, '2020-09-12');
 
     INSERT INTO fauxify.albums (id, title, artist_id, release_date)
     VALUES
@@ -96,6 +100,7 @@ BEGIN;
       (uuid_generate_v4(), 'Money', dark_side_album_id, 6, 382),
       (uuid_generate_v4(), 'Time', dark_side_album_id, 4, 413),
       (uuid_generate_v4(), 'Shine On You Crazy Diamond', wish_you_were_here_album_id, 1, 810),
+      (uuid_generate_v4(), 'Money', money_ep_id, 1, 810),
 
       -- Queen
       (uuid_generate_v4(), 'Bohemian Rhapsody', night_at_opera_album_id, 11, 354),

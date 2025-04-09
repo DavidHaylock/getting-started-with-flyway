@@ -8,5 +8,4 @@ BEGIN;
     );
 
     ALTER TABLE fauxify.songs DROP COLUMN IF EXISTS plays;
-
 COMMIT;

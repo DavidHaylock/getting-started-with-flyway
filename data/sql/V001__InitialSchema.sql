@@ -20,10 +20,19 @@ BEGIN;
         updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
     );
 
+    CREATE TABLE fauxify.eps (
+        id UUID PRIMARY KEY,
+        title VARCHAR(255) NOT NULL,
+        artist_id UUID NOT NULL REFERENCES fauxify.artists(id),
+        release_date DATE,
+        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+        updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    );
+
     CREATE TABLE fauxify.songs (
         id UUID PRIMARY KEY,
         title VARCHAR(255) NOT NULL,
-        album_id UUID NOT NULL REFERENCES fauxify.albums(id),
+        album_id UUID NOT NULL,
         track_number INT NOT NULL,
         duration_seconds INT,
         plays INT DEFAULT 0,

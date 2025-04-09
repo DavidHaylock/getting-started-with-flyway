@@ -4,6 +4,7 @@ DO $$
 DECLARE
   song_id UUID;
   song_duration_seconds INT;
+  random_position_seconds INT;
   random_created_at TIMESTAMP;
   random_song RECORD;
 BEGIN
@@ -15,11 +16,11 @@ BEGIN
 
     song_id := random_song.id;
     song_duration_seconds := random_song.duration_seconds;
-
+    random_position_seconds := FLOOR(RANDOM() * song_duration_seconds);
     random_created_at := CURRENT_TIMESTAMP - INTERVAL '1 day' * FLOOR(RANDOM() * 1200);
 
     INSERT INTO fauxify.song_analytics (id, song_id, play_time, user_id, created_at)
-    VALUES (gen_random_uuid(), song_id, FLOOR(RANDOM() * 1000), gen_random_uuid(), random_created_at);
+    VALUES (gen_random_uuid(), song_id, random_position_seconds, gen_random_uuid(), random_created_at);
   END LOOP;
 END;
 $$ LANGUAGE plpgsql;

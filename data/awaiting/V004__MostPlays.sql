@@ -5,7 +5,8 @@ SELECT
     s.title AS song_title,
     a.title AS album_title,
     ar.name AS artist_name,
-    COUNT(p.id) AS play_count
+    COUNT(p.id) AS play_count,
+    AVG(p.play_time) AS avg_play_time
 FROM
     fauxify.songs s
 JOIN
